@@ -1,0 +1,28 @@
+{
+  "name": "git-repos-sync",
+  "version": "1.0.0",
+  "description": "Node JS bot developed for git repositories synchronizations with a server (using git server).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas7997/git-repos-sync.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomas7997/git-repos-sync/issues"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0"
+  },
+  "homepage": "https://github.com/Thomas7997/git-repos-sync#readme"
+}
