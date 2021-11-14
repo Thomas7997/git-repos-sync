@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 // Add function here
+import { getRepos } from '../../actions/gitActions';
 
-function Repositories(props) {
+function Repositories({ getRepos, repos, isLoading, success }) {
     // Call function
+    useEffect(() => {
+        getRepos();
+        console.log(repos);
+    });
+
+    if (isLoading) {
+        return (
+            <p>Loading ...</p>
+        );
+    }
     
     return (
         <div>
@@ -12,5 +24,12 @@ function Repositories(props) {
 }
 
 // states
+const mapStateToProps = state => ({
+    repos : state.git.repos,
+    success : state.git.success,
+    isLoading : state.git.isLoading
+});
 
-export default Repositories;
+export default connect(mapStateToProps, {
+    getRepos
+})(Repositories);

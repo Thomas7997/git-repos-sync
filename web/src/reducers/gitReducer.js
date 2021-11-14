@@ -3,7 +3,9 @@ import {
     ERROR_REPOS,
     UNLOGGED_IN,
     LOGGED_IN,
-    LOGGED_OUT
+    LOGGED_OUT,
+    GOT_URL,
+    MISSING_URL
 } from '../actions/types';
 
 const initialState = {
@@ -14,7 +16,9 @@ const initialState = {
     repos : [],
     repo : {},
     isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,
-    user: JSON.parse(localStorage.getItem("user")) || null
+    user: JSON.parse(localStorage.getItem("user")) || null,
+    url : "",
+    proxy : ""
 };
 
 export default (state = initialState, action) => {
@@ -60,6 +64,20 @@ export default (state = initialState, action) => {
                 user: null
             };
         }
+        case GOT_URL :
+            return {
+                ...state,
+                success : true,
+                isLoading : false,
+                url : payload.url,
+                proxy : payload.proxy_url
+            };
+        case MISSING_URL :
+            return {
+                ...state,
+                success : false,
+                isLoading : false
+            };
         default :
             return state;
     }

@@ -5,8 +5,6 @@ const session = require('express-session');
 const cors = require('cors');
 const indexApi = require('./routes/index');
 
-// Passport Config
-
 var server = express();
 
 server.use(cors());
